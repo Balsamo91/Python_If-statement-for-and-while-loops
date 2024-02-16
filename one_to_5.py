@@ -1,11 +1,11 @@
 count = 1
 
-# #
-# while count <= 5:
-#     print(count)
-#     count += 1 # it is the shorter version of 'count = count + 1'
+#
+while count <= 5:
+    print(count)
+    count += 1 # it is the shorter version of 'count = count + 1'
 
-# print("The count has stopped!")
+print("The count has stopped!")
 
 ##############
 
