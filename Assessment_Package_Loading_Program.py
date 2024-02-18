@@ -1,26 +1,53 @@
-
-print("This is a package loading system program!")
-
-items_number = int(input("How many items would you like to be shippped?: "))
-
 # for n in 
 #     if items_number != float():
 #        print("please enter only numbers!")
 #     else:
 #        continue
 
+print("This is a package loading system program!")
+
+items_number = int(input("How many items would you like to be shippped?: "))
+
+max_weight_per_item = 20
 total_weight = 0
+current_package_weight = 0 # Keeping track of the current package's weight
 
 for i in range(items_number):
-    package_weight = float(input(f"What is the weight of the package? (please state the weight of the item(s) one by one) {i + 1}:  "))
-    total_weight += package_weight
-if total_weight <= 0:
-    print("Error: Values less or equal to 0 is not accepted! Please retry.")
-    # if total_weight 
+    package_weight = float(input(f"What is the weight of the package(s)? (please state the weight of the item(s) one by one) {i + 1}:  "))
+    print("codice pacco: " + str(i))
+
+    # checking is adding the current weight would exceed the Max weight per item
+    if package_weight + current_package_weight > max_weight_per_item:
+        print("Codice pacco spedito: " + str(i))
+        print(f"package_weight: {package_weight}")
+        print(f"current_package_weight: {current_package_weight}")
+
+        # package_sent = i
+        # package_sent_weight = package_weight
+        print("Maximum capacity has been achieved and the package(s) have been marked as sent")
+        # current_package_weight = 0 # Resetting the package weight for next item
+    
+# Adding the current item weight to current package
+    # current_package_weight += package_weight
+    # total_weight += package_weight
+
+    # if total_weight <= 0:
+    #     print("Error: Values less or equal to 0 is not accepted! Please retry.")
+    #     break
+
+# print(f"Number of package(s) sent: {items_number} \nTotal weight os package(s): {total_weight} \nTotal unused capacity: {items_number * max_weight_per_item - total_weight}")
+   
+# print(current_package_weight)
+
+# print(f"{package_sent} + {package_sent_weight}")
+
+
+
+
+
+
+#        if total_weight 
 # while True:
-
-
-
 
 
 
