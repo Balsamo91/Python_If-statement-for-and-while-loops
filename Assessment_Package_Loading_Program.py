@@ -1,3 +1,4 @@
+# I have decided to import module sys so that if the user input a weight package that less or equal zero the program stops and gives a message to retry as wrong input has been entered!
 import sys
 print("""
       
@@ -7,10 +8,17 @@ This is a package loading system program!
 
       """)
 
-try:
-    items_number = int(input("How many items would you like to be shippped?: "))
-except ValueError:
-    print('Enter a valid number')
+    # This while loop is here to prevent user to type the wrong input. Only integer is allowed!
+while True:
+    try:
+       items_number=int(input("How many items would you like to be shipped?: "))
+       break
+    except ValueError:
+       print("\nPlease note that only numbers are accepted. Retry!\n")
+       continue
+    else:
+        break
+
 
 # Setting the maximum weight allowed per package
 max_weight_per_package = 20
@@ -33,12 +41,12 @@ for i in range(items_number):
 
             # If weight input is less or equal to zero, program interrupts.
         elif package_weight <= 0:
-            print("Item weight cannot be less or equal to 0")
+            print("\nItem weight cannot be less or equal to 0\n")
             sys.exit()
             
         else:
             # Inform the user that the weight must be within the specified range
-            print("Weight must be between 1 and 10 kg. Please retry!")
+            print("\nWeight must be between 1 and 10 kg. Please retry!\n")
             
         
     # checking if adding the current weight would exceed the max weight per item
