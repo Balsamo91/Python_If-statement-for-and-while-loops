@@ -1,4 +1,5 @@
 import sys
+
 print("""
       
 
@@ -7,10 +8,19 @@ This is a package loading system program!
 
       """)
 
-try:
-    items_number = int(input("How many items would you like to be shippped?: "))
-except ValueError:
-    print('Enter a valid number')
+
+# items_number = int(input("How many items would you like to be shippped?: "))
+
+while True:
+    try:
+       items_number=int(input("How many items would you like to be shippped?: "))
+       break
+    except ValueError:
+       print("Please Enter An Amount")
+       continue
+    else:
+        break
+
 
 # Setting the maximum weight allowed per package
 max_weight_per_package = 20
