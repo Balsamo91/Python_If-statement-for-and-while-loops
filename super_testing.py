@@ -7,9 +7,12 @@ This is a package loading system program!
       """)
 
 try:
-    items_number = int(input("How many items would you like to be shippped?: "))
+    user_input= int(input("How many items would you like to be shippped?: "))
 except ValueError:
     print('Enter a valid number')
+    
+
+items_number = user_input
 
 # Setting the maximum weight allowed per package
 max_weight_per_package = 20
@@ -54,4 +57,3 @@ if current_package_weight > 0:
 
 print(f"Number of package(s) sent: {packages_sent} \n\nTotal weight os package(s): {total_weight} \n\nTotal unused capacity: {packages_sent * max_weight_per_package - total_weight}\n")
    
-
