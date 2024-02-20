@@ -1,4 +1,3 @@
-# I have decided to import module sys so that if the user input a weight package that less or equal zero the program stops and gives a message to retry as wrong input has been entered!
 import sys
 print("""
       
@@ -65,7 +64,7 @@ Maximum capacity has been achieved and the package has been marked as sent
               """)
         current_package_weight = package_weight # Starting a new package with the current item weight
     else:
-        # If there is space in the current package add to package_weight
+        # If there is space in the current package for other items add them to package_weight
         current_package_weight += package_weight
 
     # Adding the current item weight to the total weight of all the packages
