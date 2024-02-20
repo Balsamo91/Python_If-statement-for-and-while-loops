@@ -27,6 +27,8 @@ max_weight_per_package = 20
 total_weight = 0
 current_package_weight = 0 
 packages_sent = 0
+max_unused_capacity = 0
+package_with_max_used_capacity = 0
 
 
 for i in range(items_number):
@@ -63,18 +65,28 @@ for i in range(items_number):
 Maximum capacity has been achieved and the package has been marked as sent
               
               """)
+        if  20 - current_package_weight > max_unused_capacity:
+            max_unused_capacity = max_weight_per_package - current_package_weight
+            package_with_max_used_capacity = packages_sent
+
         current_package_weight = package_weight # Starting a new package with the current item weight
+
     else:
         # If there is space in the current package add to package_weight
         current_package_weight += package_weight
 
     # Adding the current item weight to the total weight of all the packages
     total_weight += package_weight
+    
 
 # Adding the last package if it has any weight
 if current_package_weight > 0:
     packages_sent += 1
+    if  20 - current_package_weight > max_unused_capacity:
+        max_unused_capacity = max_weight_per_package - current_package_weight
+        package_with_max_used_capacity = packages_sent
 
-print(f"Number of package(s) sent: {packages_sent} \n\nTotal weight os package(s): {total_weight} \n\nTotal unused capacity: {packages_sent * max_weight_per_package - total_weight}\n")
+
+print(f"Number of package(s) sent: {packages_sent} \n\nTotal weight os package(s): {total_weight} \n\nTotal unused capacity: {packages_sent * max_weight_per_package - total_weight}\n\n The most unsued package space: {package_with_max_used_capacity} \n\n Max unsued capacity: {max_unused_capacity}")
    
 
