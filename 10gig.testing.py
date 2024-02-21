@@ -16,7 +16,8 @@ while True:
     except ValueError:
        print("\nPlease note that only numbers are accepted. Retry!\n")
        continue
-
+    else:
+        break
 
 
 # Setting the maximum weight allowed per package
@@ -27,8 +28,14 @@ total_weight = 0
 current_package_weight = 0 
 packages_sent = 0
 max_unused_capacity = 0
-package_with_max_unused_capacity = 0
+package_with_max_used_capacity = 0
 
+
+data = 3
+if not isinstance(data, float):
+    print("Not float")
+if not isinstance(data, int):
+    print("Not int")
 
 for i in range(items_number):
     while True:
@@ -40,9 +47,15 @@ for i in range(items_number):
             except TypeError:
                 print("Please provide an Integer")
                 continue
-            except ValueError:
-                print("Please provide an Integer")
-                continue
+            else:
+                break
+
+            # To do not let the program crash for wrong input, this line of code checks for input.
+        # if package_weight.isdigit():
+        #     package_weight = float(package_weight)
+        # else:
+        #     print("Please provide an Integer")
+        #     continue
 
 
             # Checking if the weight is within range 1 to 10 kg
@@ -69,7 +82,7 @@ Maximum capacity has been achieved and the package has been marked as sent
               """)
         if  20 - current_package_weight > max_unused_capacity:
             max_unused_capacity = max_weight_per_package - current_package_weight
-            package_with_max_unused_capacity = packages_sent
+            package_with_max_used_capacity = packages_sent
 
         current_package_weight = package_weight # Starting a new package with the current item weight
 
@@ -86,9 +99,9 @@ if current_package_weight > 0:
     packages_sent += 1
     if  20 - current_package_weight > max_unused_capacity:
         max_unused_capacity = max_weight_per_package - current_package_weight
-        package_with_max_unused_capacity = packages_sent
+        package_with_max_used_capacity = packages_sent
 
 
-print(f"\nNumber of package(s) sent: {packages_sent} \n\nTotal weight os package(s): {total_weight} \n\nTotal unused capacity: {packages_sent * max_weight_per_package - total_weight}\n\nThe most unsued package space: {package_with_max_unused_capacity} \n\nMax unsued capacity: {max_unused_capacity}")
+print(f"Number of package(s) sent: {packages_sent} \n\nTotal weight os package(s): {total_weight} \n\nTotal unused capacity: {packages_sent * max_weight_per_package - total_weight}\n\n The most unsued package space: {package_with_max_used_capacity} \n\n Max unsued capacity: {max_unused_capacity}")
    
 
